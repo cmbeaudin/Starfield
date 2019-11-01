@@ -15,6 +15,7 @@ void draw(){
 	for(int i = 0; i < starlings.length; i++){
 		starlings[i].move();
 		starlings[i].show();
+		starlings[0] = new OddballParticle();
 	}
 }
 class Particle{
@@ -41,9 +42,14 @@ class Particle{
 	}
 }
 
-// class OddballParticle //inherits from Particle {
-// 	your code here
-// }
+class OddballParticle extends Particle{
+	void show(){
+		fill(0,200,200);
+		ellipse((float)Math.random()*500,(float)Math.random()*500,(float)size,(float)size);
+		fill(30);
+		ellipse((float)x,(float)(y+size/3),(float)(size*2),(float)(size/2));
+	}
+}
 
 
 // int startx = 0;
