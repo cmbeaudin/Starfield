@@ -1,4 +1,4 @@
-Particle[] starlings = new Particle[1000];
+Particle[] starlings = new Particle[2500];
 void setup(){
 	background(0);
 	size(500, 500);
@@ -9,12 +9,13 @@ void setup(){
 void draw(){
 	frameRate(100);
 	noStroke();
-	fill(0, 0, 0, 40);
+	fill(0, 0, 0, 10);
 	rect(0, 0, 1000, 1000);
 	for(int i = 0; i < starlings.length; i++){
 		starlings[i].move();
 		starlings[i].show();
 		starlings[0] = new OddballParticle();
+
 	}
 }
 class Particle{
@@ -24,8 +25,8 @@ class Particle{
 		x = 250;
 		y = 250;
 		angle = Math.random() * 2 * Math.PI;
-		speed = Math.random() * 5;
-		size = 10;
+		speed = Math.random() * 1.5;
+		size = 7;
 		colorsR = (int)(Math.random() * 255);
 		colorsG = (int)(Math.random() * 75);
 		colorsB = (int)(Math.random() * 100);
@@ -33,7 +34,7 @@ class Particle{
 	void move(){
 		x += Math.sin(angle) * speed;
 		y += Math.cos(angle) * speed;
-		size += 0.005;
+		size += 0.001;
 	}
 	void show(){
 		fill(colorsR, colorsG, colorsB, 100);
@@ -44,7 +45,7 @@ class Particle{
 class OddballParticle extends Particle{
 	void show(){
 		fill(0,200,200);
-		ellipse((float)x,(float)y,(float)size,(float)size);
+		ellipse((float)Math.random()*500,(float)Math.random()*500,(float)size,(float)size);
 	}
 	void move(){
 		x += Math.sin(angle) * speed;
